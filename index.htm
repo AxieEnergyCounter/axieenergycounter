@@ -1,0 +1,469 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Axie Energy Cards Counter</title>
+    
+    <link href="css/app.css" rel="stylesheet">
+    <script defer="" src="js/app.js"> </script>
+    <link href="css2.css?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Livewire Styles -->
+<style>
+    [wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid] {
+        display: none;
+    }
+
+    [wire\:offline] {
+        display: none;
+    }
+
+    [wire\:dirty]:not(textarea):not(input):not(select) {
+        display: none;
+    }
+
+    input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {
+        animation-duration: 50000s;
+        animation-name: livewireautofill;
+    }
+
+    @keyframes livewireautofill { from {} }
+</style>
+</head>
+
+<body class="wrapper" style="background-color: #be9770b3">
+    <div>
+        
+                
+        <div class="flex-grow container mx-auto page-main">
+                <div wire:id="2N3QFAj3Yp0NcdvfF3lR" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;2N3QFAj3Yp0NcdvfF3lR&quot;,&quot;name&quot;:&quot;principal.index&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:{&quot;pWmHIP7&quot;:{&quot;id&quot;:&quot;FLOEEXgoWjsAt0Y7f1q1&quot;,&quot;tag&quot;:&quot;div&quot;}},&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;e4dda320&quot;,&quot;data&quot;:[],&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;4158ddabbac443ea2a09e754477b7aff63972a69e4c731fdf2af430f43082c57&quot;}}" class="container mt-5 " style="text-align: -webkit-center;">
+    <div wire:id="FLOEEXgoWjsAt0Y7f1q1" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;FLOEEXgoWjsAt0Y7f1q1&quot;,&quot;name&quot;:&quot;herramientas.contador&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;152daf65&quot;,&quot;data&quot;:{&quot;ronda&quot;:1,&quot;energia&quot;:3,&quot;cartas&quot;:6},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;7de89b71068714b82ba42b137f8065a3f19879e2d4b6aea331d0b237a5e7928f&quot;}}" class="contador">
+    <div class="column is-6 cajas">
+        <div style="width: 64%; margin-bottom: 20px; !important;">
+            <div class="" style="display: flex;">
+                <div id="informacion-energia" class="">
+                    <div id="img-energias"></div>
+                    <span id="id-energia-numero"></span>
+                    
+                    <span>/10</span>
+                </div>
+                <div id="rondas" class="">
+                    
+                    <div id="img-rondas"></div>     <span id="id-ronda-numero"></span>
+                    
+                </div>
+                <div id="informacion-cartas" class="">
+                    <div id="img-cartas"></div>
+                    <span id="id-cartas-numero"></span>
+                    
+                    <span>/12</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button id="restar-energia" onclick="restarEnergia()"></button>
+            
+            <button id="restar-energia-carta-1" onclick="restarEnergiaCarta()"></button>
+            
+            <button id="restar-energia-carta-0" onclick="restarCarta()"></button>
+            
+            <button id="sumar-energia" onclick="sumarEnergia()"></button>
+            
+        </div>
+
+        <div>
+            <button id="restar-carta" onclick="restarCarta()"></button>
+            <button id="sumar-carta" onclick="sumarCarta()"></button>
+            
+        </div>
+
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column">
+                <button id="botones" onclick="siguienteRonda()" class="button">
+                
+                    <span>Siguiente Ronda</span>
+                </button>
+            </div>
+            <div class="column">
+                <button id="botones" onclick="reiniciarPartida()" class="button">
+                
+                    <span>Reiniciar Batalla</span>
+                </button>
+            </div>
+            <div class="column"></div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    var ronda = 1;
+    var energia = 3;
+    var cartas = 6;
+
+    document.getElementById("id-ronda-numero").innerHTML = ronda;
+    document.getElementById('id-energia-numero').innerHTML = energia;
+    document.getElementById('id-cartas-numero').innerHTML = cartas;
+
+
+    function sumarEnergia(){
+        if(energia < 10){
+            energia++;
+        }
+        document.getElementById('id-energia-numero').innerHTML = energia;
+    }
+
+    function restarEnergia(){
+        if(energia > 0){
+            energia--;
+        }
+        document.getElementById('id-energia-numero').innerHTML = energia;
+    }
+
+    /** funciones de los botones restar energia y restar sumar cartas */
+    function restarEnergiaCarta(){
+        if(energia > 0){
+            energia--;
+        }
+        if(cartas > 0){
+            cartas--;
+        }
+        document.getElementById('id-energia-numero').innerHTML = energia;
+        document.getElementById('id-cartas-numero').innerHTML = cartas;
+    }
+    function restarCarta(){
+        if(cartas > 0){
+            cartas--;
+        }
+        document.getElementById('id-cartas-numero').innerHTML = cartas;
+    }
+    function sumarCarta(){
+        if(cartas < 12){
+            cartas++;
+        }
+        document.getElementById('id-cartas-numero').innerHTML = cartas;
+    }
+
+    /** funciones para los botones de rondas y reinicio de partida */
+    function siguienteRonda(){
+        ronda++;
+        if(energia < 10){
+            energia == 9 ? energia = energia+1 : energia = energia+2;
+        }
+        document.getElementById('id-energia-numero').innerHTML = energia;
+
+        if(cartas < 12){
+            cartas == 10 ? cartas = cartas+2 : 
+                ( cartas == 11 ? cartas = cartas+1 : cartas = cartas+3 );
+        }
+        document.getElementById('id-energia-numero').innerHTML = energia;
+        document.getElementById('id-cartas-numero').innerHTML = cartas;
+        document.getElementById("id-ronda-numero").innerHTML = ronda;
+    }
+
+    function reiniciarPartida(){
+        ronda = 1;
+        energia = 3;
+        cartas = 6;
+        document.getElementById('id-energia-numero').innerHTML = energia;
+        document.getElementById('id-cartas-numero').innerHTML = cartas;
+        document.getElementById("id-ronda-numero").innerHTML = ronda;
+    }
+
+
+
+
+</script>
+
+
+<style>
+    #img-rondas {
+        background-repeat: no-repeat;
+        background-image: url('images/Rondas-Text.svg');
+        background-size: 100% 100%;
+        height: 30px;
+        width: 65px;
+        background-position: center;
+        background-color: #3d120e;
+    }
+    #img-energias {
+        background-repeat: no-repeat;
+        background-image: url('images/energy1.svg');
+        background-size: 75% 75%;
+        height: 60px;
+        width: 60px;
+        background-position: center;
+        background-color: #e6b05a;
+    }
+
+    #img-cartas {
+        background-repeat: no-repeat;
+        background-image: url('images/cards.svg');
+        background-size: 100% 100%;
+        height: 60px;
+        width: 60px;
+        border: 0px;
+        background-position: center;
+        background-color: #724e41;
+    }
+
+
+
+    #informacion-cartas {
+        background-color: #3d120ea3;
+        color: #ffffff;
+        font-weight: 800;
+        width: 35%;
+        border: 2px solid #f7be76;
+        border-radius: 15px;
+        font-size: 30px;
+    }
+
+    #informacion-energia {
+        background-color: #f9ab1e85;
+        color: #fafafa;
+        font-weight: 800;
+        width: 35%;
+        border: 2px solid #e78108;
+        border-radius: 15px;
+        font-size: 30px;
+    }
+
+    #rondas {
+        width: 30%;
+        color: #dda355eb;
+        background-color: #3d120e;
+        border: 3px solid #f7be76;
+        font-weight: 800;
+        font-size: 18px;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 15px;
+    }
+
+    #botones {
+        background-color: #3d120e;
+        color: #dda355;
+        border: 3px solid #f7be76;
+        font-weight: 800;
+    }
+
+    #botones:hover {
+        background-color: #581f1a;
+        color: #dda355;
+        border: 3px solid #f7be76;
+        font-weight: 800;
+    }
+
+    #restar-energia {
+        background-repeat: no-repeat;
+        background-image: url('images/EnergyMinus.svg');
+        background-size: 100% 100%;
+        height: 60px;
+        width: 60px;
+        border: 0px;
+        vertical-align: top;
+        background-color: #d1b69b;
+    }
+
+    #restar-energia:hover {
+        background-repeat: no-repeat;
+        background-image: url('images/EnergyMinus.svg');
+        background-size: 95% 95%;
+        height: 60px;
+        width: 60px;
+        border: 0px;
+        cursor: pointer;
+        vertical-align: top;
+        background-color: #d1b69b;
+    }
+
+    #sumar-energia {
+        background-repeat: no-repeat;
+        background-image: url('images/EnergyPlus.svg');
+        background-size: 100% 100%;
+        height: 60px;
+        width: 60px;
+        border: 0px;
+        vertical-align: top;
+        background-color: #d1b69b;
+    }
+
+    #sumar-energia:hover {
+        background-repeat: no-repeat;
+        background-image: url('images/EnergyPlus.svg');
+        background-size: 95% 95%;
+        height: 60px;
+        width: 60px;
+        border: 0px;
+        cursor: pointer;
+        vertical-align: top;
+        background-color: #d1b69b;
+    }
+
+
+
+    #restar-carta {
+        background-repeat: no-repeat;
+        background-image: url('images/CardMinus.svg');
+        background-size: 100% 100%;
+        height: 115px;
+        width: 105px;
+        border: 0px;
+        background-color: #d1b69b;
+    }
+
+    #restar-carta:hover {
+        background-repeat: no-repeat;
+        background-image: url('images/CardMinus.svg');
+        background-size: 95% 95%;
+        height: 115px;
+        width: 105px;
+        border: 0px;
+        cursor: pointer;
+        background-color: #d1b69b;
+    }
+
+    #sumar-carta {
+        background-repeat: no-repeat;
+        background-image: url('images/CardPlus.svg');
+        background-size: 100% 100%;
+        height: 115px;
+        width: 105px;
+        border: 0px;
+        background-color: #d1b69b;
+    }
+
+    #sumar-carta:hover {
+        background-repeat: no-repeat;
+        background-image: url('images/CardPlus.svg');
+        background-size: 95% 95%;
+        height: 115px;
+        width: 105px;
+        border: 0px;
+        cursor: pointer;
+        background-color: #d1b69b;
+    }
+
+    #restar-energia-carta-1 {
+        background-repeat: no-repeat;
+        background-image: url('images/CardEnergy1.svg');
+        background-size: 100% 100%;
+        height: 121px;
+        width: 81px;
+        border: 0px;
+        margin-left: 25px;
+        background-color: #d1b69b;
+    }
+
+    #restar-energia-carta-1:hover {
+        background-repeat: no-repeat;
+        background-image: url('images/CardEnergy1.svg');
+        background-size: 95% 95%;
+        height: 121px;
+        width: 81px;
+        border: 0px;
+        margin-left: 25px;
+        cursor: pointer;
+        background-color: #d1b69b;
+    }
+
+    #restar-energia-carta-0 {
+        background-repeat: no-repeat;
+        background-image: url('images/CardEnergy0.svg');
+        background-size: 100% 100%;
+        height: 121px;
+        width: 82px;
+        border: 0px;
+        margin-left: 25px;
+        background-color: #d1b69b;
+    }
+
+    #restar-energia-carta-0:hover {
+        background-repeat: no-repeat;
+        background-image: url('images/CardEnergy0.svg');
+        background-size: 95% 95%;
+        height: 121px;
+        width: 82px;
+        border: 0px;
+        margin-left: 25px;
+        cursor: pointer;
+        background-color: #d1b69b;
+    }
+</style></div>
+
+        </div>
+        
+        
+        <!-- Livewire Scripts -->
+
+<script src="livewire/livewire.js?id=e6704f81026a73a52725" data-turbo-eval="false" data-turbolinks-eval="false"></script>
+<script data-turbo-eval="false" data-turbolinks-eval="false">
+    if (window.livewire) {
+	    console.warn('Livewire: It looks like Livewire\'s @livewireScripts JavaScript assets have already been loaded. Make sure you aren\'t loading them twice.')
+	}
+
+    window.livewire = new Livewire();
+    window.livewire.devTools(true);
+    window.Livewire = window.livewire;
+    window.livewire_app_url = '';
+    window.livewire_token = '6eVRumps0bLtbYMA9hEEgQqhTfFMgSFQ2oZdbts5';
+
+	/* Make sure Livewire loads first. */
+	if (window.Alpine) {
+	    /* Defer showing the warning so it doesn't get buried under downstream errors. */
+	    document.addEventListener("DOMContentLoaded", function () {
+	        setTimeout(function() {
+	            console.warn("Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire\'s scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js")
+	        })
+	    });
+	}
+
+	/* Make Alpine wait until Livewire is finished rendering to do its thing. */
+    window.deferLoadingAlpine = function (callback) {
+        window.addEventListener('livewire:load', function () {
+            callback();
+        });
+    };
+
+    let started = false;
+
+    window.addEventListener('alpine:initializing', () => {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+</script>
+</div></body>
+
+
+</html>
+
+<style>
+    .wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+ 
+.wrapper > * {
+  padding: 20px;
+}
+ 
+.page-main {
+  flex-grow: 1;
+}
+</style>
