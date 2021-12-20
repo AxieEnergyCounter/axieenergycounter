@@ -1,0 +1,56 @@
+Uri: http://axienergycardscounter.local/
+File Name: C:\Users\user\Desktop\pagina\axienergycardscounter.local\index.htm
+Content Type: text/html
+
+Uri: http://axienergycardscounter.local/images/Rondas-Text.svg
+File Name: C:\Users\user\Desktop\pagina\axienergycardscounter.local\images\Rondas-Text.svg
+Content Type: image/svg+xml
+
+Uri: http://axienergycardscounter.local/images/energy1.svg
+File Name: C:\Users\user\Desktop\pagina\axienergycardscounter.local\images\energy1.svg
+Content Type: image/svg+xml
+
+Uri: http://axienergycardscounter.local/images/cards.svg
+File Name: C:\Users\user\Desktop\pagina\axienergycardscounter.local\images\cards.svg
+Content Type: image/svg+xml
+
+Uri: http://axienergycardscounter.local/images/EnergyMinus.svg
+File Name: C:\Users\user\Desktop\pagina\axienergycardscounter.local\images\EnergyMinus.svg
+Content Type: image/svg+xml
+
+Uri: http://axienergycardscounter.local/images/EnergyPlus.svg
+File Name: C:\Users\user\Desktop\pagina\axienergycardscounter.local\images\EnergyPlus.svg
+Content Type: image/svg+xml
+
+Uri: http://axienergycardscounter.local/images/CardMinus.svg
+File Name: C:\Users\user\Desktop\pagina\axienergycardscounter.local\images\CardMinus.svg
+Content Type: image/svg+xml
+
+Uri: http://axienergycardscounter.local/images/CardPlus.svg
+File Name: C:\Users\user\Desktop\pagina\axienergycardscounter.local\images\CardPlus.svg
+Content Type: image/svg+xml
+
+Uri: http://axienergycardscounter.local/images/CardEnergy1.svg
+File Name: C:\Users\user\Desktop\pagina\axienergycardscounter.local\images\CardEnergy1.svg
+Content Type: image/svg+xml
+
+Uri: http://axienergycardscounter.local/images/CardEnergy0.svg
+File Name: C:\Users\user\Desktop\pagina\axienergycardscounter.local\images\CardEnergy0.svg
+Content Type: image/svg+xml
+
+Uri: http://axienergycardscounter.local/css/app.css
+File Name: C:\Users\user\Desktop\pagina\axienergycardscounter.local\css\app.css
+Content Type: text/css
+
+Uri: https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap
+File Name: C:\Users\user\Desktop\pagina\axienergycardscounter.local\css2.css
+Content Type: text/css
+
+Uri: http://axienergycardscounter.local/js/app.js
+File Name: C:\Users\user\Desktop\pagina\axienergycardscounter.local\js\app.js
+Content Type: application/javascript
+
+Uri: http://axienergycardscounter.local/livewire/livewire.js?id=e6704f81026a73a52725
+File Name: C:\Users\user\Desktop\pagina\axienergycardscounter.local\livewire\livewire.js
+Content Type: application/javascript
+
